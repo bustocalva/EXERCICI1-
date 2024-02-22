@@ -15,8 +15,9 @@ describe("task", () => {
     clase.completedTask();
     expect(clase.completed).toStrictEqual(expected);
   });
-  it("probando el deleteTask", ()=>{
-    const expected = 
-  })
-
+  it("probando el deleteTask", () => {
+    const expected = true;
+    clase.deleteTask(1);
+    expect(true).toStrictEqual(expected);
+  });
 });

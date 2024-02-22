@@ -22,6 +22,7 @@ export class Task {
     const indice = list.findIndex((i) => i.id === id);
     if (indice) {
       list.splice(indice, 1);
+      return true;
     }
   }
   showTaskList() {
@@ -46,3 +47,6 @@ _tarea2.addTask();
 // tarea.deleteTask(2);
 
 tarea.showTaskList();
+
+console.log(tarea);
+console.log(_tarea2);
