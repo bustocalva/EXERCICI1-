@@ -10,14 +10,21 @@ describe("task", () => {
     clase.addTask();
     expect(clase.id).toStrictEqual(expected);
   });
-  it("probando el completed task", () => {
-    const expected = true;
-    clase.completedTask();
-    expect(clase.completed).toStrictEqual(expected);
+  it("probando el completedtask", ()=> {
+    const expected= 1
+    clase.completedTask(0);
+    expect(clase.id).toStrictEqual(expected);
   });
-  it("probando el deleteTask", () => {
-    const expected = true;
-    clase.deleteTask(1);
-    expect(true).toStrictEqual(expected);
+  it("probando el deletedTask", ()=> {
+    const expected= true;
+    expect(clase.deleteTask(0)).toStrictEqual(expected);
   });
+  it("probando el showtasklist", ()=> {
+    clase.addTask();
+    let lista = clase.showTaskList();
+    
+    expect(lista).toEqual([]);
+  });
+
 });
+

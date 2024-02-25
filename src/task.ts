@@ -1,4 +1,13 @@
-const list: any[] = [];
+
+interface TTask{
+  id:number;
+  name: string;
+  completed: boolean
+}
+
+
+const list: TTask[] = [];
+
 
 export class Task {
   constructor(
@@ -8,31 +17,33 @@ export class Task {
   ) {}
 
   addTask() {
-    // list.push({ this.id, this.name, this.completed });
-    list.push(this.id, this.name, this.completed);
+    const nuevaTarea: TTask = new Task(this.id, this.name, this.completed);
+    list.push(nuevaTarea);
     this.id++;
   }
-  completedTask() {
-    const nombre = list.find((n) => n.name === this.name);
-    if (nombre) {
-      nombre.completed = true;
+  completedTask(id:number) {
+    const tarea = list.find((t) => t.id ===id);
+    if (tarea) {
+      tarea.completed = true;
     }
+    return this.id;
   }
-  deleteTask(id: number) {
+  deleteTask(id: number): boolean {
     const indice = list.findIndex((i) => i.id === id);
     if (indice) {
       list.splice(indice, 1);
       return true;
     }
+    return false;
   }
-  showTaskList() {
-    // for (i; i < list.length; i++) {
-    //   console.log(list[i]);
-    // }
+  showTaskList():void {
     list.forEach((listaTareas) => {
       console.log(listaTareas);
-    });
-  }
+      return [listaTareas];
+    }
+    
+    )};
+   
 }
 const tarea = new Task(1, "test", false);
 const _tarea2 = new Task(2, "test", false);
@@ -42,11 +53,11 @@ _tarea2.addTask();
 // tarea.addTask("nombre2", 2, false);
 // tarea.addTask("nombre3", 3, false);
 
-// tarea.completedTask("nombre3");
+tarea.completedTask(1);
 
-// tarea.deleteTask(2);
+tarea.deleteTask(2);
 
 tarea.showTaskList();
 
-console.log(tarea);
-console.log(_tarea2);
+//console.log(tarea);
+//console.log(_tarea2);//
