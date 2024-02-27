@@ -1,6 +1,5 @@
-
-interface TTask{
-  id:number;
+interface TTask {
+  id: number;
   name: string;
   completed: boolean
 }
@@ -9,7 +8,8 @@ interface TTask{
 const list: TTask[] = [];
 
 
-export class Task {
+
+export class Task implements TTask {
   constructor(
     public id: number,
     public name: string,

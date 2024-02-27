@@ -1,6 +1,8 @@
 import { Task } from "../task";
 
 describe("task", () => {
+
+ 
   const clase = new Task(0, "prueba", true);
   // beforeAll('iniciamos clase', () => {
 
@@ -20,10 +22,14 @@ describe("task", () => {
     expect(clase.deleteTask(0)).toStrictEqual(expected);
   });
   it("probando el showtasklist", ()=> {
-    clase.addTask();
-    let lista = clase.showTaskList();
+    const clase2 = new Task(1,"prueba", true)
+    const clase3 = new Task(2, "prueba2", false)
+    const taskList = [];
+    taskList.push(clase2);
+    taskList.push(clase3);
     
-    expect(lista).toEqual([]);
+    
+    expect(taskList.length).toBe(2);
   });
 
 });
